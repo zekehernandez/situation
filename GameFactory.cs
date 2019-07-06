@@ -44,11 +44,13 @@ namespace Situation
             {
               new LocationChangeInteraction 
               {
+                Game = game,
                 Name = "Go to the Coffee Shop",
                 ToLocationId = 1
               },
               new LocationChangeInteraction 
               {
+                Game = game,
                 Name = "Go to the Police Station",
                 ToLocationId = 2
               }
@@ -65,6 +67,7 @@ namespace Situation
             {
               new LocationChangeInteraction 
               {
+                Game = game,
                 Name = "Leave the Coffee Shop",
                 ToLocationId = 0
               }
@@ -81,6 +84,7 @@ namespace Situation
             {
               new LocationChangeInteraction 
               {
+                Game = game,
                 Name = "Leave the Police Station",
                 ToLocationId = 0
               }

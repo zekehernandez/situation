@@ -5,16 +5,27 @@ namespace Situation
 {
     public abstract class Interaction
     {      
+      public Game Game { get; set; }
       public string Name { get; set; }
-      public abstract void interact(Game game);
+      public bool IsAvailable { get; set; }
+      public abstract void interact();
     }
 
     public class LocationChangeInteraction : Interaction
     {
       public int ToLocationId { get; set; } 
-      public override void interact(Game game) 
+      public override void interact() 
       {
-        game.changeCurrentLocation(ToLocationId);
+        Game.changeCurrentLocation(ToLocationId);
+      }
+    }
+
+    public class EventInteraction : Interaction
+    {
+      public GameEvent GameEvent { get; set; }
+
+      public override void interact(){
+        Game.QueuedEvents.Enqueue(GameEvent);
       }
     }
 }
