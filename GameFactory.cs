@@ -72,6 +72,44 @@ namespace Situation
                 ToLocationId = 0
               }
             }
+          },
+          new Interactable
+          {
+            Name = "Talk to Shop Owner",
+            Interactions = new List<Interaction>
+            {
+              new EventInteraction
+              {
+                Game = game,
+                Name = "Greet",
+                IsAvailable = true,
+                GameEvent = new ConversationEvent
+                {
+                  EventId = 1,
+                  EventName = "Talk to shop owner",
+                  EventType = EventType.Conversation,
+                  Conversation = new Conversation
+                  {
+                    Game = game,
+                    Entry = new ConversationNode
+                    {
+                      Prompt = "What's up, my dude?",
+                      Responses = new List<ConversationNode>
+                      {
+                        new ConversationNode
+                        {
+                          OptionText = "Not much, you?"
+                        },
+                        new ConversationNode
+                        {
+                          OptionText = "Oh boy, let me tell you!"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         };
 

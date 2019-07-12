@@ -13,7 +13,7 @@ namespace Situation
             while(true) 
             {
               // Event Loop
-              // processEvents(game);
+              processEvents(game);
               // Main Loop
               Location location = game.getCurrentLocation();
               List<Interactable> interactables = game.getInteractables();
@@ -91,10 +91,33 @@ namespace Situation
           while(game.QueuedEvents.Count > 0) 
           {
             GameEvent gameEvent = game.QueuedEvents.Dequeue();
-            Console.WriteLine(gameEvent.TextResponse);
-            Console.WriteLine();
-            
+            switch(gameEvent.EventType) {
+              case EventType.Conversation:
+              {
+                ConversationEvent conversationEvent = gameEvent as ConversationEvent;
+                playConversation(conversationEvent.Conversation);
+                continue;
+              }
+              default: continue;
+            }    
           }
+        }
+
+        static void playConversation(Conversation conversation) 
+        {
+          Console.WriteLine();
+          Console.WriteLine(conversation.Entry.Prompt);
+
+          presentConversationResponses(conversation.Entry.Responses);
+        }
+
+        static void presentConversationResponses(List<ConversationNode> responses)
+        {
+          for (var j = 0; j < responses.Count; j++)
+          {
+            Console.WriteLine(string.Format("[{0}]: {1}", j+1, responses[j].OptionText));
+          }; 
+          Console.WriteLine("[0]: Say Goodbye");
         }
     }
 }
