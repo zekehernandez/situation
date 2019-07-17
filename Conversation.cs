@@ -9,7 +9,7 @@ namespace Situation
       public ConversationNode Entry { get; set; }
 
       private void finish() {
-        
+        // do something
       }
     }
 }
