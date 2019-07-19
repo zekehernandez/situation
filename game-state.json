@@ -18,6 +18,12 @@
               "ToLocationId": 2,
               "Name": "Go to the Police Station",
               "IsAvailable": false
+            },
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 3,
+              "Name": "Go to Your Apartment",
+              "IsAvailable": false
             }
           ]
         }
@@ -126,6 +132,23 @@
               },
               "Name": "Inquire",
               "IsAvailable": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "LocationId": 3,
+      "LocationName": "Your apartment",
+      "Interactables": [
+        {
+          "Name": "Use the Door",
+          "Interactions": [
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 0,
+              "Name": "Leave your apartment",
+              "IsAvailable": false
             }
           ]
         }

@@ -8,7 +8,7 @@ namespace Situation
         static void Main(string[] args)
         {
             GameMaster.Instance.loadGame();
-            Game game = GameMaster.game;
+            Game game = GameMaster.Game;
             
             while(true) 
             {
