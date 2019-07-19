@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Situation
 {
     public abstract class Interaction
     {      
+      [JsonIgnore]
       public Game Game { get; set; }
       public string Name { get; set; }
       public bool IsAvailable { get; set; }
