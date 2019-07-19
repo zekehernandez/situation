@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Situation
 {
     public abstract class Interaction
     {      
-      public Game Game { get; set; }
       public string Name { get; set; }
       public bool IsAvailable { get; set; }
       public abstract void interact();
@@ -16,7 +16,7 @@ namespace Situation
       public int ToLocationId { get; set; } 
       public override void interact() 
       {
-        Game.changeCurrentLocation(ToLocationId);
+        GameMaster.Game.changeCurrentLocation(ToLocationId);
       }
     }
 
@@ -25,7 +25,7 @@ namespace Situation
       public GameEvent GameEvent { get; set; }
 
       public override void interact(){
-        Game.QueuedEvents.Enqueue(GameEvent);
+        GameMaster.Game.QueuedEvents.Enqueue(GameEvent);
       }
     }
 }

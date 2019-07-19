@@ -1,0 +1,159 @@
+{
+  "Locations": [
+    {
+      "LocationId": 0,
+      "LocationName": "City",
+      "Interactables": [
+        {
+          "Name": "Go Somewhere",
+          "Interactions": [
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 1,
+              "Name": "Go to the Coffee Shop",
+              "IsAvailable": false
+            },
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 2,
+              "Name": "Go to the Police Station",
+              "IsAvailable": false
+            },
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 3,
+              "Name": "Go to Your Apartment",
+              "IsAvailable": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "LocationId": 1,
+      "LocationName": "Coffee Shop",
+      "Interactables": [
+        {
+          "Name": "Use the Door",
+          "Interactions": [
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 0,
+              "Name": "Leave the Coffee Shop",
+              "IsAvailable": false
+            }
+          ]
+        },
+        {
+          "Name": "Talk to Shop Owner",
+          "Interactions": [
+            {
+              "$type": "Situation.EventInteraction, Situation",
+              "GameEvent": {
+                "$type": "Situation.ConversationEvent, Situation",
+                "Conversation": {
+                  "Entry": {
+                    "Conversation": null,
+                    "OptionText": null,
+                    "Prompt": "What's up, my dude?",
+                    "Responses": [
+                      {
+                        "Conversation": null,
+                        "OptionText": "Not much, you?",
+                        "Prompt": null,
+                        "Responses": null
+                      },
+                      {
+                        "Conversation": null,
+                        "OptionText": "Oh boy, let me tell you!",
+                        "Prompt": null,
+                        "Responses": null
+                      }
+                    ]
+                  }
+                },
+                "EventId": 1,
+                "EventName": "Talk to shop owner",
+                "EventType": 0
+              },
+              "Name": "Greet",
+              "IsAvailable": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "LocationId": 2,
+      "LocationName": "Police Station",
+      "Interactables": [
+        {
+          "Name": "Use the Door",
+          "Interactions": [
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 0,
+              "Name": "Leave the Police Station",
+              "IsAvailable": false
+            }
+          ]
+        },
+        {
+          "Name": "Talk to Police Chief",
+          "Interactions": [
+            {
+              "$type": "Situation.EventInteraction, Situation",
+              "GameEvent": {
+                "$type": "Situation.ConversationEvent, Situation",
+                "Conversation": {
+                  "Entry": {
+                    "Conversation": null,
+                    "OptionText": null,
+                    "Prompt": "Can I help you, son?",
+                    "Responses": [
+                      {
+                        "Conversation": null,
+                        "OptionText": "No, sir. Thank you, sir.",
+                        "Prompt": null,
+                        "Responses": null
+                      },
+                      {
+                        "Conversation": null,
+                        "OptionText": "Maybe?",
+                        "Prompt": null,
+                        "Responses": null
+                      }
+                    ]
+                  }
+                },
+                "EventId": 2,
+                "EventName": "Talk to police chief",
+                "EventType": 0
+              },
+              "Name": "Inquire",
+              "IsAvailable": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "LocationId": 3,
+      "LocationName": "Your apartment",
+      "Interactables": [
+        {
+          "Name": "Use the Door",
+          "Interactions": [
+            {
+              "$type": "Situation.LocationChangeInteraction, Situation",
+              "ToLocationId": 0,
+              "Name": "Leave your apartment",
+              "IsAvailable": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "QueuedEvents": []
+}

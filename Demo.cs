@@ -7,8 +7,8 @@ namespace Situation
     {
         static void Main(string[] args)
         {
-            GameFactory factory = new GameFactory();
-            Game game = factory.createNewGame();
+            GameMaster.Instance.loadGame();
+            Game game = GameMaster.Game;
             
             while(true) 
             {
@@ -53,6 +53,8 @@ namespace Situation
                 }
               }
             }
+
+            GameMaster.Instance.saveGame();
         }
 
         static void stateLocation(string locationName) 
