@@ -110,7 +110,25 @@ namespace Situation
           Console.WriteLine();
           Console.WriteLine(conversation.Entry.Prompt);
 
-          presentConversationResponses(conversation.Entry.Responses);
+          ConversationNode node = conversation.Entry;
+
+          while(node.Responses != null) {
+
+            presentConversationResponses(node.Responses);
+
+            int selection = 0;
+            if (readInt(out selection)) 
+            {
+              if (selection == 0 || selection >= node.Responses.Count) 
+              {
+                break;
+              }
+              else 
+              {
+                node = node.Responses[selection];
+              }
+            }
+          }
         }
 
         static void presentConversationResponses(List<ConversationNode> responses)
