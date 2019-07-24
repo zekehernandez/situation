@@ -52,25 +52,32 @@
               "GameEvent": {
                 "$type": "Situation.ConversationEvent, Situation",
                 "Conversation": {
-                  "Entry": {
-                    "Conversation": null,
-                    "OptionText": null,
-                    "Prompt": "What's up, my dude?",
-                    "Responses": [
-                      {
-                        "Conversation": null,
-                        "OptionText": "Not much, you?",
-                        "Prompt": null,
-                        "Responses": null
-                      },
-                      {
-                        "Conversation": null,
-                        "OptionText": "Oh boy, let me tell you!",
-                        "Prompt": null,
-                        "Responses": null
-                      }
-                    ]
-                  }
+                  "Nodes": [
+                    {
+                      "NodeId": 0,
+                      "Text": "What's up, my dude?"
+                    },
+                    {
+                      "NodeId": 1,
+                      "Text": "Same."
+                    },
+                    {
+                      "NodeId": 2,
+                      "Text": "Another time maybe..."
+                    }
+                  ],
+                  "Links": [
+                    {
+                      "FromNodeId": 0,
+                      "ToNodeId": 1,
+                      "OptionText": "Not much, you?"
+                    },
+                    {
+                      "FromNodeId": 0,
+                      "ToNodeId": 2,
+                      "OptionText": "Oh boy, let me tell you!"
+                    }
+                  ]
                 },
                 "EventId": 1,
                 "EventName": "Talk to shop owner",
@@ -106,25 +113,32 @@
               "GameEvent": {
                 "$type": "Situation.ConversationEvent, Situation",
                 "Conversation": {
-                  "Entry": {
-                    "Conversation": null,
-                    "OptionText": null,
-                    "Prompt": "Can I help you, son?",
-                    "Responses": [
-                      {
-                        "Conversation": null,
-                        "OptionText": "No, sir. Thank you, sir.",
-                        "Prompt": null,
-                        "Responses": null
-                      },
-                      {
-                        "Conversation": null,
-                        "OptionText": "Maybe?",
-                        "Prompt": null,
-                        "Responses": null
-                      }
-                    ]
-                  }
+                  "Nodes": [
+                    {
+                      "NodeId": 0,
+                      "Text": "Can I help you, son?"
+                    },
+                    {
+                      "NodeId": 1,
+                      "Text": "See you around, then"
+                    },
+                    {
+                      "NodeId": 2,
+                      "Text": "Maybe? Can't help with 'Maybe'"
+                    }
+                  ],
+                  "Links": [
+                    {
+                      "FromNodeId": 0,
+                      "ToNodeId": 1,
+                      "OptionText": "No, sir. Thank you, sir."
+                    },
+                    {
+                      "FromNodeId": 0,
+                      "ToNodeId": 2,
+                      "OptionText": "Maybe?"
+                    }
+                  ]
                 },
                 "EventId": 2,
                 "EventName": "Talk to police chief",
