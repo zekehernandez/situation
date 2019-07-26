@@ -6,7 +6,9 @@ namespace Situation
 {
     public class Conversation
     {      
-      public ConversationNode Entry { get; set; }
+      public List<ConversationNode> Nodes { get; set; }
+
+      public List<ConversationNodeLink> Links { get; set; }
 
       private void finish() {
         // do something
