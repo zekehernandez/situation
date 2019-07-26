@@ -74,6 +74,7 @@ namespace Situation
 
         static void presentInteractions(List<Interaction> interactions)
         {
+          Console.WriteLine();
           for (var j = 0; j < interactions.Count; j++)
           {
             Console.WriteLine(string.Format("[{0}]: {1}", j+1, interactions[j].Name));
@@ -111,27 +112,30 @@ namespace Situation
           ConversationNode node = conversation.Nodes[0];
 
           Console.WriteLine('"' + node.Text + '"');
-          Console.WriteLine();
-
+          
           var links = conversation.Links.FindAll(link => link.FromNodeId == node.NodeId);
 
           while(links.Count > 0) {
 
-            presentConversationResponses(links);
-
-            int selection = 0;
-            if (readInt(out selection)) 
-            {
-              if (selection == 0 || selection > links.Count) 
-              {
-                break;
-              }
-              else 
-              {
-                node = conversation.Nodes.Find(x => x.NodeId == links[selection-1].ToNodeId);
+            var i = links.FindIndex(link => link.Auto);
+            if (i != -1) {
+                node = conversation.Nodes.Find(x => x.NodeId == links[i].ToNodeId);
                 links = conversation.Links.FindAll(link => link.FromNodeId == node.NodeId);
                 Console.WriteLine();
                 Console.WriteLine('"' + node.Text + '"');
+            } else {
+              presentConversationResponses(links);
+
+              int selection = 0;
+              if (readInt(out selection)) 
+              {
+                if (selection > 0 && selection <= links.Count) 
+                {
+                  node = conversation.Nodes.Find(x => x.NodeId == links[selection-1].ToNodeId);
+                  links = conversation.Links.FindAll(link => link.FromNodeId == node.NodeId);
+                  Console.WriteLine();
+                  Console.WriteLine('"' + node.Text + '"');
+                }
               }
             }
           }
@@ -143,7 +147,6 @@ namespace Situation
           {
             Console.WriteLine(string.Format("[{0}]: {1}", j+1, responses[j].OptionText));
           }; 
-          Console.WriteLine("[0]: Say Goodbye");
         }
     }
 }

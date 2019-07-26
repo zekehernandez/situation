@@ -63,19 +63,53 @@
                     },
                     {
                       "NodeId": 2,
-                      "Text": "Another time maybe..."
+                      "Text": "Let's hear it."
+                    },
+                    {
+                      "NodeId": 3,
+                      "Text": "Alrighty then."
+                    },
+                    {
+                      "NodeId": 4,
+                      "Text": "Bye."
                     }
                   ],
                   "Links": [
                     {
                       "FromNodeId": 0,
                       "ToNodeId": 1,
-                      "OptionText": "Not much, you?"
+                      "OptionText": "Not much, you?",
+                      "Auto": false
                     },
                     {
                       "FromNodeId": 0,
                       "ToNodeId": 2,
-                      "OptionText": "Oh boy, let me tell you!"
+                      "OptionText": "Oh boy, let me tell you!",
+                      "Auto": false
+                    },
+                    {
+                      "FromNodeId": 2,
+                      "ToNodeId": 3,
+                      "OptionText": "On second thought, nevermind.",
+                      "Auto": false
+                    },
+                    {
+                      "FromNodeId": 3,
+                      "ToNodeId": 0,
+                      "OptionText": null,
+                      "Auto": true
+                    },
+                    {
+                      "FromNodeId": 1,
+                      "ToNodeId": 0,
+                      "OptionText": null,
+                      "Auto": true
+                    },
+                    {
+                      "FromNodeId": 0,
+                      "ToNodeId": 4,
+                      "OptionText": "See ya.",
+                      "Auto": false
                     }
                   ]
                 },
@@ -131,12 +165,14 @@
                     {
                       "FromNodeId": 0,
                       "ToNodeId": 1,
-                      "OptionText": "No, sir. Thank you, sir."
+                      "OptionText": "No, sir. Thank you, sir.",
+                      "Auto": false
                     },
                     {
                       "FromNodeId": 0,
                       "ToNodeId": 2,
-                      "OptionText": "Maybe?"
+                      "OptionText": "Maybe?",
+                      "Auto": false
                     }
                   ]
                 },

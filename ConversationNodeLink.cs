@@ -8,5 +8,6 @@ namespace Situation
       public int FromNodeId { get; set; }
       public int ToNodeId { get; set; }
       public string OptionText { get; set; }
+      public bool Auto { get; set; } = false;
     }
 }
